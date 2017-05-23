@@ -32,7 +32,7 @@ public class Product {
 		this.seller = seller;
 		this.price = price;
 		this.category = category;
-		this.hashTag = hashTag;
+		this.hashtag = hashTag;
 	}
 	@Column(name="product_name")
 	private String productName;
@@ -47,7 +47,7 @@ public class Product {
 	private String category;
 	
 	@Column(name="hash_tag")
-	private String hashTag;
+	private String hashtag;
 	
 	
 	
@@ -83,11 +83,11 @@ public class Product {
 	}
 
 	public String getHashTag() {
-		return hashTag;
+		return hashtag;
 	}
 
 	public void setHashTag(String hashTag) {
-		this.hashTag = hashTag;
+		this.hashtag = hashTag;
 	}
 
 	public Customer getCustomer() {

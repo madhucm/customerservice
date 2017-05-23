@@ -32,7 +32,7 @@ public class Customer {
 	@Column(name = "customer_id", unique = true, nullable = false)
 	private int customer_id;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
 	
 	private Set<Product> products;
 	

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.customer.facade.CustomerFacade;
 import com.customer.model.Customer;
+import com.customer.model.Product;
 import com.customer.model.ProductData;
 
 @RestController
@@ -34,6 +35,11 @@ class CustomerServiceRestController {
     @RequestMapping(value="/customers",method=RequestMethod.POST)
     public ResponseEntity<Boolean> saveCustomerData(@RequestBody Customer cust){
     	return new ResponseEntity<Boolean>(customerFacade.saveCustomerData(cust),HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/products", method = RequestMethod.POST)   
+    public ResponseEntity<Boolean> saveProductData(@RequestBody Product prod){
+    	return new ResponseEntity<Boolean>(customerFacade.saveProductData(prod),HttpStatus.CREATED);
     }
     
     @RequestMapping(value="/customers/{id}",method=RequestMethod.GET)

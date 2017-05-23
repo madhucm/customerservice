@@ -1,6 +1,9 @@
 package com.customer.initilizer;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.customer.config.AppConfig;
 
@@ -38,4 +41,6 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	    protected String[] getServletMappings() {
 	        return new String[] { "/" };
 	    }
+	    
+	   
 }
