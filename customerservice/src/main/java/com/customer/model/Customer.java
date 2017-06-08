@@ -32,9 +32,8 @@ public class Customer {
 	@Column(name = "customer_id", unique = true, nullable = false)
 	private int customer_id;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-	
-	private Set<Product> products;
+/*	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)	
+	private Set<Product> products;*/
 	
 	public Customer() {
 		
@@ -77,12 +76,12 @@ public class Customer {
 	}
 	
 	
-	public Set<Product> getProducts() {
+	/*public Set<Product> getProducts() {
 		return products;
 	}
 	public void setProducts(Set<Product> products) {
 		this.products = products;
-	}
+	}*/
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();

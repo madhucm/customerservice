@@ -1,5 +1,5 @@
 
-angular.module('myApp', ['ngMaterial']).controller('AppController', function ($scope,$http,$mdToast) {
+angular.module('myApp', ['ngMaterial','ngFileUpload']).controller('AppController', function ($scope,$http,$mdToast) {
 	var self=this;
 
 	var url="http://localhost:8080/customers";
@@ -49,15 +49,20 @@ angular.module('myApp', ['ngMaterial']).controller('AppController', function ($s
 		self.email='';
 	};
 
-	self.sendProdData = function() {
+    
+	self.sendProdData = function(pic) {
 
+        
 		var prodparam = JSON.stringify({
 			productName:self.name,
 			seller:self.seller,
 			price:self.price,
 			category:self.category,
 			hashTag:self.hashtag
+           
 		});
+        
+       
 
 		$http.post(produrl,prodparam,{
 			headers: {
@@ -77,7 +82,12 @@ angular.module('myApp', ['ngMaterial']).controller('AppController', function ($s
 		);
 
 		
-
+$mdToast.show(
+				$mdToast.simple()
+				.textContent('Customer data inserted')
+				.position('bottom' )
+				.hideDelay(3000)
+		);
 				$scope.products.push({'name':self.name,'seller':self.seller,'price':self.price,'category':self.category,'hashtag':self.hashtag});
 
 				$scope.product.name='';

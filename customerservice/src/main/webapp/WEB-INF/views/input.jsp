@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html ng-app="myApp">
 <head>  
 <title>Customer Service</title>  
@@ -13,7 +14,8 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-         <script src="/static/js/controller/customer_controller.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/9.0.9/ng-file-upload.min.js"></script>
+          <script src="/static/js/controller/customer_controller.js"></script>
 
   <style>
 
@@ -41,9 +43,9 @@
      
     <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="Customer">
-            <div ng-controller="AppController as customer" ng-cloak>
-                
-         <md-input-container class="md-block">
+            <div layout="row" ng-controller="AppController as customer" ng-cloak>
+                <div flex>
+                <md-input-container class="md-block">
           <label>Customer Name</label>
           <input ng-model="customer.name">
         </md-input-container>
@@ -61,7 +63,9 @@
         <section layout='row'>
             <md-button class="md-raised md-primary" ng-click='customer.sendCustData()' >Send Data</md-button>    
         </section>
-            <md-table-container>
+                </div>
+         <div flex>
+                 <md-table-container>
                 <table md-table md-row-select multiple>
                     <thead md-head>
                         <tr md-row>
@@ -78,13 +82,15 @@
                         </tr>
                     </tbody>
                 </table>
-            </md-table-container> 
+            </md-table-container>
+                </div>
+            
                 </div>
         </md-tab>
          <md-tab label="Product">
-              <div ng-controller="AppController as product" ng-cloak>
-                  
-                  <md-input-container class="md-block">
+              <div layout="row" ng-controller="AppController as product" ng-cloak>
+                  <div flex>
+                      <md-input-container class="md-block">
           <label>Product Name</label>
           <input ng-model="product.name">
         </md-input-container>
@@ -106,13 +112,22 @@
                   
                   <md-input-container class="md-block">
           <label>Hashtag</label>
-          <input ng-model="product.hashtag">
+          <input ng-model="product.hashtag">                  
         </md-input-container>
+                      
+                       <!--md-input-container class="md-block">
+          
+          <input type="file" ngf-select="" ng-model="product.pic" name="file" ngf-accept="'image/*'" required="" multiple>                  
+        </md-input-container-->
+                      
                   
                    <section layout='row'>
-            <md-button class="md-raised md-primary" ng-click='product.sendProdData()' >Send Data</md-button>    
+            <md-button class="md-raised md-primary" ng-click='product.sendProdData(product.pic)' >Send Data</md-button>    
         </section>
-            <md-table-container>
+                  
+                  </div>
+                  <div flex>
+                      <md-table-container>
                 <table md-table md-row-select multiple>
                     <thead md-head>
                         <tr md-row>
@@ -134,6 +149,8 @@
                     </tbody>
                 </table>
             </md-table-container> 
+                  </div>
+            
                   
              </div>
         </md-tab>
